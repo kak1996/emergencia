@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<title>Emergência detectada ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #ff9fbd,
+        #ffd4e2,
+        #fff0f5
+    );
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    padding: 20px;
+
+    overflow: hidden;
+}
+
+.card {
+    width: 100%;
+    max-width: 430px;
+
+    background: rgba(255,255,255,.96);
+
+    border-radius: 28px;
+
+    padding: 28px 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.18);
+
+    position: relative;
+    z-index: 20;
+}
+
+.emoji {
+    font-size: 65px;
+
+    animation: balancar 1.2s infinite alternate;
+}
+
+@keyframes balancar {
+
+    from {
+        transform: rotate(-8deg) scale(1);
+    }
+
+    to {
+        transform: rotate(8deg) scale(1.08);
+    }
+
+}
+
+h1 {
+    font-size: 27px;
+    color: #e83e74;
+    margin: 10px 0;
+}
+
+p {
+    color: #555;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.alerta {
+
+    background: #fff0f5;
+
+    color: #d6336c;
+
+    border-radius: 16px;
+
+    padding: 14px;
+
+    margin: 18px 0;
+
+    font-size: 15px;
+}
+
+.botoes {
+
+    min-height: 80px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+button {
+
+    border: none;
+
+    border-radius: 50px;
+
+    padding: 16px 22px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+#btnPrincipal {
+
+    background: #ff4f87;
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(255,79,135,.35);
+}
+
+#btnNao {
+
+    background: #eee;
+
+    color: #555;
+
+    z-index: 999;
+}
+
+#mensagem {
+
+    min-height: 80px;
+
+    margin-top: 10px;
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    color: #444;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+#final {
+
+    display: none;
+}
+
+.coracao {
+
+    position: fixed;
+
+    top: -50px;
+
+    z-index: 9999;
+
+    pointer-events: none;
+
+    animation-name: cair;
+
+    animation-timing-function: linear;
+
+    animation-fill-mode: forwards;
+}
+
+@keyframes cair {
+
+    0% {
+
+        transform:
+            translateY(-50px)
+            rotate(0deg);
+
+        opacity: 1;
+    }
+
+    100% {
+
+        transform:
+            translateY(120vh)
+            rotate(720deg);
+
+        opacity: 0;
+    }
+
+}
+
+.assinatura {
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    color: #999;
+}
+
+#mensagemFinal {
+
+    font-size: 17px;
+
+    font-weight: bold;
+
+    color: #e83e74;
+
+    min-height: 30px;
+
+    margin-top: 15px;
+}
+
+</style>
+</head>
+
+<body>
+
+
+<div class="card" id="inicio">
+
+    <div class="emoji">🚨</div>
+
+    <h1>ATENÇÃO!</h1>
+
+    <p>
+        Nosso sistema detectou um problema extremamente grave.
+    </p>
+
+    <div class="alerta">
+
+        ⚠️ Diagnóstico oficial:
+
+        <br><br>
+
+        Uma garota muito linda está um pouquinho pra baixo.
+
+    </div>
+
+    <p>
+
+        Felizmente existe um tratamento.
+
+    </p>
+
+    <div class="botoes">
+
+        <button id="btnPrincipal">
+
+            Iniciar tratamento 💊
+
+        </button>
+
+        <button id="btnNao">
+
+            Não quero 😒
+
+        </button>
+
+    </div>
+
+    <div id="mensagem"></div>
+
+</div>
+
+
+
+<div class="card" id="final">
+
+    <div class="emoji">🥰</div>
+
+    <h1>Tratamento concluído!</h1>
+
+    <p>
+
+        Depois de uma análise extremamente científica...
+
+    </p>
+
+    <div class="alerta">
+
+        Descobrimos que você continua sendo
+
+        <br><br>
+
+        linda ❤️
+
+        <br>
+
+        maravilhosa 🥰
+
+        <br>
+
+        e oficialmente proibida de ficar triste por muito tempo.
+
+    </div>
+
+    <p>
+
+        Caso os sintomas continuem, a bula recomenda:
+
+    </p>
+
+    <p style="font-size:21px">
+
+        🍫 Chocolate
+
+        <br>
+
+        🍔 Comida gostosa
+
+        <br>
+
+        🤗 Abraço apertado
+
+        <br>
+
+        💋 Vários beijinhos meus
+
+    </p>
+
+
+    <button id="btnBeijo">
+
+        Solicitar beijinhos 💋
+
+    </button>
+
+
+    <div id="mensagemFinal"></div>
+
+
+    <div class="assinatura">
+
+        Medicamento contém namorado(a) apaixonado(a).
+
+        <br>
+
+        Uso contínuo recomendado. ❤️
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const btnPrincipal =
+        document.getElementById("btnPrincipal");
+
+    const btnNao =
+        document.getElementById("btnNao");
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+    const inicio =
+        document.getElementById("inicio");
+
+    const final =
+        document.getElementById("final");
+
+    const btnBeijo =
+        document.getElementById("btnBeijo");
+
+    const mensagemFinal =
+        document.getElementById("mensagemFinal");
+
+
+    let etapa = 0;
+
+
+    const frases = [
+
+        "🔎 Analisando nível de fofura...",
+
+        "😳 Resultado: perigosamente alto.",
+
+        "😐 Verificando nível atual de sorriso...",
+
+        "🚨 ALERTA: precisamos aumentar isso urgentemente.",
+
+        "🛰️ Consultando especialistas da NASA...",
+
+        "💡 Encontramos o tratamento!",
+
+        "Preparando a dose... 💊",
+
+        "Tratamento autorizado! ❤️"
+
+    ];
+
+
+    const frasesNao = [
+
+        "Boa tentativa 😂",
+
+        "Esse botão não funciona 😌",
+
+        "Achou que ia escapar? 😂",
+
+        "NEGADO 🚫",
+
+        "Volta aqui 😂",
+
+        "Não existe essa opção 😌",
+
+        "Vai ter que aceitar carinho SIM 😂❤️",
+
+        "O sistema recusou sua solicitação 😂"
+
+    ];
+
+
+
+    function criarCoracoes(quantidade) {
+
+        const emojis = [
+
+            "❤️",
+            "💖",
+            "💕",
+            "💗",
+            "💓",
+            "🌸",
+            "✨",
+            "💘"
+
+        ];
+
+
+        for (
+            let i = 0;
+            i < quantidade;
+            i++
+        ) {
+
+            setTimeout(function () {
+
+                const coracao =
+                    document.createElement("div");
+
+                coracao.className = "coracao";
+
+                coracao.textContent =
+                    emojis[
+                        Math.floor(
+                            Math.random()
+                            * emojis.length
+                        )
+                    ];
+
+
+                coracao.style.left =
+                    Math.random()
+                    * 95
+                    + "vw";
+
+
+                coracao.style.fontSize =
+                    (
+                        18
+                        +
+                        Math.random()
+                        * 28
+                    )
+                    + "px";
+
+
+                coracao.style.animationDuration =
+                    (
+                        2
+                        +
+                        Math.random()
+                        * 2
+                    )
+                    + "s";
+
+
+                document.body.appendChild(
+                    coracao
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        coracao.remove();
+
+                    },
+                    5000
+                );
+
+            }, i * 80);
+
+        }
+
+    }
+
+
+
+    function iniciarTratamento() {
+
+        mensagem.textContent =
+            frases[etapa];
+
+        criarCoracoes(8);
+
+        etapa++;
+
+
+        if (
+            etapa >= frases.length
+        ) {
+
+            btnPrincipal.disabled = true;
+
+            btnPrincipal.textContent =
+                "Processando... ❤️";
+
+
+            setTimeout(
+                function () {
+
+                    inicio.style.display =
+                        "none";
+
+                    final.style.display =
+                        "block";
+
+                    criarCoracoes(45);
+
+                },
+                1000
+            );
+
+        }
+
+    }
+
+
+
+    function fugir() {
+
+        const larguraBotao =
+            btnNao.offsetWidth;
+
+        const alturaBotao =
+            btnNao.offsetHeight;
+
+
+        const maxX =
+            window.innerWidth
+            -
+            larguraBotao
+            -
+            20;
+
+
+        const maxY =
+            window.innerHeight
+            -
+            alturaBotao
+            -
+            20;
+
+
+        const x =
+            Math.max(
+                10,
+                Math.random()
+                *
+                maxX
+            );
+
+
+        const y =
+            Math.max(
+                10,
+                Math.random()
+                *
+                maxY
+            );
+
+
+        btnNao.style.position =
+            "fixed";
+
+        btnNao.style.left =
+            x
+            + "px";
+
+        btnNao.style.top =
+            y
+            + "px";
+
+
+        mensagem.textContent =
+            frasesNao[
+                Math.floor(
+                    Math.random()
+                    *
+                    frasesNao.length
+                )
+            ];
+
+    }
+
+
+
+    btnPrincipal.addEventListener(
+        "click",
+        iniciarTratamento
+    );
+
+
+    btnNao.addEventListener(
+        "pointerdown",
+        function (event) {
+
+            event.preventDefault();
+
+            fugir();
+
+        }
+    );
+
+
+    btnNao.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            fugir();
+
+        }
+    );
+
+
+
+    btnBeijo.addEventListener(
+        "click",
+        function () {
+
+            criarCoracoes(35);
+
+            const respostas = [
+
+                "💋 Pedido aprovado: beijinhos ILIMITADOS!",
+
+                "🚚 Entrega prevista: assim que eu te encontrar 😂❤️",
+
+                "✅ Beijinhos autorizados com sucesso.",
+
+                "🤗 Bônus desbloqueado: abraço apertado!",
+
+                "⚠️ Atenção: você acabou de contratar um pacote vitalício de carinho 😂❤️"
+
+            ];
+
+
+            mensagemFinal.textContent =
+                respostas[
+                    Math.floor(
+                        Math.random()
+                        *
+                        respostas.length
+                    )
+                ];
+
+        }
+    );
+
+});
+
+</script>
+
+
+</body>
+</html>
